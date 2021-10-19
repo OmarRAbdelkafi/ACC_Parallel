@@ -1,0 +1,5 @@
+sources/sko100a.dat
+sources/sko100d.dat
+sources/sko100e.dat
+sources/sko100f.dat
+sources/tho150.dat

@@ -1,0 +1,30 @@
+for((i=1; i <=5; i++)) ; do awk -v r=$i 'BEGIN{c=0;}{if(NF==1) {c++;} if(c == r && NF >1 ) {print($2,$4*$5);} }' global_results_TS_0 > plot/tai40_global_best_run_$i.txt ; done
+for((i=1; i <=5; i++)) ; do awk -v r=$i 'BEGIN{c=0;}{if(NF==1) {c++;} if(c == r && NF >1 ) {print($3,$4*$5);} }' global_results_TS_0 > plot/tai40_global_current_run_$i.txt ; done
+
+for((i=1; i <=5; i++)) ; do awk -v r=$i 'BEGIN{c=0;}{if(NF==1) {c++;} if(c == r && NF >1 ) {print($1,$3+$4);} }' Display1/local_results_TS_1 > Display1/plot/lopa80a_local_run_$i.txt ; done
+
+gnuplot
+
+plot 'plot/tai40_local_run_1.txt' u 2:1 title 'run 1'
+set log x
+replot
+replot 'plot/tai40_local_run_2.txt' u 2:1 w lp title 'run 2'
+
+unset log x ou unset log y
+
+set point 0.5
+
+set xrange[1:*] ou set xrange[1000:*] ect
+
+set xlabel "number of iterations"
+set ylabel "deviation fitness"
+set terminal png
+set output "run1.png"
+
+exit
+
+
+plot '4p_1pool/global_results_TS_0_1' u 2:1 w lp title 'tai40a-run1-1pool-4pross'
+replot '4p_2pool/global_results_TS_0_1' u 2:1 w lp title 'tai40a-run1-2pool-4pross'
+replot '4p_4pool/global_results_TS_0_1' u 2:1 w lp title 'tai40a-run1-4pool-4pross'
+replot '4p_8pool/global_results_TS_0_1' u 2:1 w lp title 'tai40a-run1-8pool-4pross'

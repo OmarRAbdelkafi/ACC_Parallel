@@ -1,0 +1,26 @@
+/**********Description*************/
+
+* Cette algorithme est le GPU-HITS avec une evaluation parallèle sous GPU de la matrice delta.
+
+* la qualité des résultats est exactement la meme que la version sequentiel.
+
+* le gain de temps commence avec l'instance tai256c donc de taille 256.
+
+* L'objectif de cette version est de résoudre les grande instances comme tai343.
+
+* L'algorithme est publier dans la conférence EA. 
+
+/**********Mode d'execution********/
+
+1-Faite "make" pour creer l'executable.
+
+2-Pour l'exécution faite "./execution.sh".
+
+3-Pour changé les instances ouvrer le "main"
+
+4-Le main est organisé en 5 parties indépendantes:
+	*initialization
+	*optimisation (TS, evaluation)
+	*affichage
+	*free data
+	*affichage du recap de tout les runs

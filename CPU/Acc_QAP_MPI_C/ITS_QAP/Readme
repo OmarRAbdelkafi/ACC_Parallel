@@ -1,0 +1,35 @@
+Execution:
+mpic++ main.cpp data.cpp Meta.cpp -o ITSQAPB_MPI
+mpirun -np 4 ./ITSQAPB_MPI > Global_RUNS_ITSB1_Disp1_2p.txt
+
+
+Version ITS_QAP_B3_pool :
+
+Pool V1.1 Basique 3:
+
+* Parallel ITS avec un pool de best global pour les processes.
+* Les display 1-2 et 3 représente 3 niveaux de granularité de la Tabu Search :
+	- Display 1 : n*10000 => TS_iteration ; max_global_iter => 1
+	- Display 2 : n*1000 => TS_iteration ; max_global_iter => 10
+	- Display 3 : n*100 => TS_iteration ; max_global_iter => 100
+
+* Forma des fichiers :
+	- global_result_TS_i_j avec i le numéro de l'instance (ITS) le j le numéro du run :
+		1.153098 0.261 1 4000 100.000000
+		.
+		.
+		.
+
+		- Respectivement sur la ligne suivante on a:
+		"%dev du global best de l'ITS"  "temps d'execution en s" "iter en cour" "granularité TS" "% de remplissage du pool"
+
+* global_test.txt représente les 2 instances de test de départ
+* global_Tn.txt représente les instances de type n
+* global.txt représente une sélection de test avec ampleur
+* max_runs est le nombre de tentative
+
+* Perturbation par défault : les k premiers éléments perturbés aléatoirement
+* Autre perturbation : perturbation de Glover
+
+* NB Process à testé : 2 4 8 16
+*les parametre choisie par défault sont ceux du Display3
